@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dgpnuxxi2xyfc"]
+
+[ext_resource type="Texture2D" uid="uid://dplhwrqf26h2d" path="res://import/kenney_ui-pack-space-expansion/PNG/Blue/Default/bar_round_gloss_large_square.png" id="1_bncj4"]
+
+[resource]
+texture = ExtResource("1_bncj4")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0

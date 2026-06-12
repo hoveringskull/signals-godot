@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://di7yxahirkqwh"]
+
+[ext_resource type="Script" uid="uid://ru6005rs6o47" path="res://examples/idle_game/background.gd" id="1_0trf0"]
+[ext_resource type="Theme" uid="uid://hhy682ty5qc8" path="res://theme/theme.tres" id="1_1y4ay"]
+[ext_resource type="Script" uid="uid://2rvjb648his3" path="res://examples/idle_game/idle_game.gd" id="2_1y4ay"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0sy60"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0trf0"]
+font_size = 58
+font_color = Color(0, 0, 0, 1)
+
+[node name="Basics" type="Node2D"]
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="background" type="TextureRect" parent="ui"]
+modulate = Color(0.26666668, 0.23921569, 0.22352941, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_0sy60")
+script = ExtResource("1_0trf0")
+
+[node name="background" type="TextureRect" parent="ui/background"]
+modulate = Color(0.26666668, 0.23921569, 0.22352941, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_0sy60")
+script = ExtResource("1_0trf0")
+
+[node name="idle_game" type="PanelContainer" parent="ui"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -29.0
+offset_right = 100.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1y4ay")
+script = ExtResource("2_1y4ay")
+
+[node name="MarginContainer" type="MarginContainer" parent="ui/idle_game"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/idle_game/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ui/idle_game/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="increment_button" type="Button" parent="ui/idle_game/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Number go up 👆"
+
+[node name="countdown_button" type="Button" parent="ui/idle_game/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "number go down 👇"
+
+[node name="lock_button" type="Button" parent="ui/idle_game/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"AltButton"
+text = "🔒"
+
+[node name="counter_label" type="Label" parent="ui/idle_game/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_0trf0")
+horizontal_alignment = 1

@@ -1,0 +1,283 @@
+[gd_scene load_steps=25 format=4 uid="uid://bhgor5qb7l8rs"]
+
+[ext_resource type="TileSet" uid="uid://cmqps1e7hdjoi" path="res://examples/connections/connections_tiles.tres" id="1_gowg5"]
+[ext_resource type="Script" uid="uid://dbh4o8ohs6f5s" path="res://examples/connections/connections.gd" id="1_m1fbm"]
+[ext_resource type="FontFile" uid="uid://cy7kd4iqcn6m1" path="res://examples/connections/PressStart2P.ttf" id="2_y4ig2"]
+[ext_resource type="Texture2D" uid="uid://dmxm621a838so" path="res://import/kenney_desert-shooter-pack_1.0/PNG/Enemies/Tiles/tile_0000.png" id="4_h4dqx"]
+[ext_resource type="Texture2D" uid="uid://bqer38p77klyt" path="res://import/kenney_pixel-platformer-industrial-expansion/Tiles/tile_0073.png" id="4_yeahk"]
+[ext_resource type="Texture2D" uid="uid://dcp7o4gw8xtvy" path="res://import/kenney_pixel-platformer-industrial-expansion/Tiles/tile_0042.png" id="5_5s1yr"]
+[ext_resource type="Texture2D" uid="uid://bydxu4qtam0f2" path="res://import/kenney_desert-shooter-pack_1.0/PNG/Enemies/Tiles/tile_0001.png" id="5_dnrl2"]
+[ext_resource type="Texture2D" uid="uid://b5gj1gqqe5m7f" path="res://import/kenney_desert-shooter-pack_1.0/PNG/Enemies/Tiles/tile_0002.png" id="6_3f5l3"]
+[ext_resource type="Texture2D" uid="uid://b42qhrgiu5rod" path="res://import/kenney_pixel-platformer-industrial-expansion/Tiles/tile_0064.png" id="6_66atc"]
+[ext_resource type="Texture2D" uid="uid://s7qojpw00kkw" path="res://import/kenney_desert-shooter-pack_1.0/PNG/Enemies/Tiles/tile_0004.png" id="7_8ow5p"]
+[ext_resource type="Texture2D" uid="uid://b2rwkpvfbu1os" path="res://import/kenney_pixel-platformer-industrial-expansion/Tiles/tile_0065.png" id="7_chpsx"]
+[ext_resource type="Texture2D" uid="uid://cnk45nnmwl8qe" path="res://import/kenney_pixel-platformer-industrial-expansion/Tiles/tile_0108.png" id="8_gcow0"]
+[ext_resource type="Texture2D" uid="uid://d0mjvkei3utdu" path="res://import/kenney_desert-shooter-pack_1.0/PNG/Enemies/Tiles/tile_0005.png" id="8_wxpr6"]
+[ext_resource type="Texture2D" uid="uid://dur64w1dlo8q2" path="res://import/kenney_desert-shooter-pack_1.0/PNG/Enemies/Tiles/tile_0006.png" id="9_nio4q"]
+[ext_resource type="Texture2D" uid="uid://dbpgdokn31j0h" path="res://import/kenney_pixel-platformer-industrial-expansion/Tiles/tile_0079.png" id="9_xeolw"]
+
+[sub_resource type="Gradient" id="Gradient_y4ig2"]
+colors = PackedColorArray(0.6117647, 0.36862746, 0.54901963, 1, 0.84313726, 1, 0.7921569, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m1fbm"]
+gradient = SubResource("Gradient_y4ig2")
+fill_from = Vector2(0, 0.6196581)
+fill_to = Vector2(0.9358974, 0.32905984)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jx4j8"]
+font = ExtResource("2_y4ig2")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_v2pqk"]
+font = ExtResource("2_y4ig2")
+font_size = 14
+font_color = Color(1, 0.28235295, 0.13725491, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yeahk"]
+font = ExtResource("2_y4ig2")
+font_size = 14
+
+[sub_resource type="LabelSettings" id="LabelSettings_m1fbm"]
+font = ExtResource("2_y4ig2")
+font_size = 24
+font_color = Color(0.3372549, 0.3372549, 0.3372549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6mfca"]
+font = ExtResource("2_y4ig2")
+font_size = 12
+font_color = Color(0.3372549, 0.3372549, 0.3372549, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5s1yr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_h4dqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dnrl2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3f5l3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_66atc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_8ow5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wxpr6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nio4q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Connections" type="Node2D" node_paths=PackedStringArray("slides")]
+script = ExtResource("1_m1fbm")
+slides = [NodePath("Node2D/MainSubject"), NodePath("Node2D/Observer1"), NodePath("Node2D/Observer1Connect"), NodePath("Node2D/Observer23"), NodePath("Node2D/Observer23Connect2")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1150.0
+offset_bottom = 650.0
+texture = SubResource("GradientTexture2D_m1fbm")
+
+[node name="Node2D" type="Node2D" parent="."]
+scale = Vector2(4, 4)
+
+[node name="Background" type="TileMapLayer" parent="Node2D"]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAACAAgAAAAEAAMAAAACAAcAAAAFAAMAAAACAAYAAAAEAAMAAAACAAUAAAAEAAMAAAACAAQAAAAEAAMAAAAGAAgAAAAFAAMAAAAGAAcAAAAEAAMAAAAGAAYAAAAEAAMAAAAGAAUAAAAFAAMAAAAGAAQAAAAEAAMAAAAAAAoAAAANAAEAAAABAAoAAAANAAEAAAACAAoAAAANAAEAAAADAAoAAAANAAEAAAAEAAoAAAANAAEAAAAFAAoAAAANAAEAAAAGAAoAAAANAAEAAAAHAAoAAAANAAEAAAAIAAoAAAANAAEAAAAJAAoAAAANAAEAAAAKAAoAAAANAAEAAAALAAoAAAANAAEAAAAMAAoAAAANAAEAAAANAAoAAAANAAEAAAAOAAoAAAANAAEAAAAPAAoAAAANAAEAAAAQAAoAAAANAAEAAAARAAoAAAANAAEAAAACAAkAAAAFAAMAAAAGAAkAAAAFAAMAAAA=")
+tile_set = ExtResource("1_gowg5")
+
+[node name="MainSubject" type="TileMapLayer" parent="Node2D"]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAACAAIAAgAAAAMAAAACAAMAAgAAAAQAAAACAAQAAgAAAAUAAAADAAIAAgABAAMAAAADAAMAAgABAAQAAAADAAQAAgABAAUAAAAEAAIAAgABAAMAAAAEAAMAAgABAAQAAAAEAAQAAgABAAUAAAAFAAIAAgABAAMAAAAFAAMAAgABAAQAAAAFAAQAAgABAAUAAAAGAAIAAgACAAMAAAAGAAMAAgACAAQAAAAGAAQAAgACAAUAAAAAAAMAAAANAAYAAAABAAMAAAAPAAYAAAA=")
+tile_set = ExtResource("1_gowg5")
+
+[node name="SubjectTitle" type="Label" parent="Node2D/MainSubject"]
+texture_filter = 1
+offset_left = 38.25
+offset_top = 38.0
+offset_right = 323.25
+offset_bottom = 126.0
+scale = Vector2(0.25, 0.25)
+text = "Subject"
+label_settings = SubResource("LabelSettings_jx4j8")
+
+[node name="Tile0042" type="Sprite2D" parent="Node2D/MainSubject"]
+visible = false
+position = Vector2(100.5, 22.75)
+texture = ExtResource("4_yeahk")
+
+[node name="Node2D" type="Node2D" parent="Node2D/MainSubject"]
+
+[node name="direct_fx" type="Label" parent="Node2D/MainSubject/Node2D"]
+visible = false
+texture_filter = 1
+offset_left = 38.25
+offset_top = 48.0
+offset_right = 323.25
+offset_bottom = 136.0
+scale = Vector2(0.25, 0.25)
+text = "observer.show_sign()
+"
+label_settings = SubResource("LabelSettings_v2pqk")
+
+[node name="signal" type="Label" parent="Node2D/MainSubject/Node2D"]
+texture_filter = 1
+offset_left = 38.25
+offset_top = 48.0
+offset_right = 323.25
+offset_bottom = 136.0
+scale = Vector2(0.25, 0.25)
+text = "signal thing_done"
+label_settings = SubResource("LabelSettings_yeahk")
+
+[node name="Observer1" type="TileMapLayer" parent="Node2D"]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAALAAEAAwAAAAMAAAALAAIAAwAAAAUAAAAMAAEAAwABAAMAAAAMAAIAAwABAAUAAAANAAEAAwABAAMAAAANAAIAAwABAAUAAAAOAAEAAwACAAMAAAAOAAIAAwACAAUAAAALAAAAAAAIAAEAAAAOAAAAAAAIAAEAAAA=")
+tile_set = ExtResource("1_gowg5")
+
+[node name="ObserverTitle" type="Label" parent="Node2D/Observer1"]
+texture_filter = 1
+offset_left = 180.75
+offset_top = 19.75
+offset_right = 465.75
+offset_bottom = 107.75
+scale = Vector2(0.25, 0.25)
+text = "Observer"
+label_settings = SubResource("LabelSettings_m1fbm")
+
+[node name="sign" type="Sprite2D" parent="Node2D/Observer1"]
+visible = false
+position = Vector2(227.5, 35.5)
+texture = ExtResource("5_5s1yr")
+
+[node name="func" type="Label" parent="Node2D/Observer1"]
+texture_filter = 1
+offset_left = 180.75
+offset_top = 29.0
+offset_right = 465.75
+offset_bottom = 117.0
+scale = Vector2(0.25, 0.25)
+text = "func 
+show_sign()"
+label_settings = SubResource("LabelSettings_6mfca")
+
+[node name="Observer1Connect" type="TileMapLayer" parent="Node2D"]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAHAAIAAAAMAAYAAAAIAAIAAAANAAUAAAAIAAEAAAAMAAQAAAAJAAEAAAANAAYAAAAKAAEAAAAPAAYAAAA=")
+tile_set = ExtResource("1_gowg5")
+
+[node name="connect" type="Label" parent="Node2D/Observer1Connect"]
+texture_filter = 1
+offset_left = 180.5
+offset_top = 36.75
+offset_right = 465.5
+offset_bottom = 124.75
+scale = Vector2(0.25, 0.25)
+text = "do_thing.connect(
+  show_sign)"
+label_settings = SubResource("LabelSettings_6mfca")
+
+[node name="Observer23" type="TileMapLayer" parent="Node2D"]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAMAAQAAwAAAAMAAAAMAAUAAwAAAAUAAAANAAQAAwABAAMAAAANAAUAAwABAAUAAAAOAAQAAwABAAMAAAAOAAUAAwABAAUAAAANAAcAAwAAAAMAAAANAAgAAwAAAAUAAAAOAAcAAwABAAMAAAAOAAgAAwABAAUAAAAPAAQAAwACAAMAAAAPAAUAAwACAAUAAAAQAAcAAwACAAMAAAAQAAgAAwACAAUAAAAPAAgAAwABAAUAAAAPAAcAAwABAAMAAAAMAAMAAAAKAAMAAAAMAAAAAAAKAAMAAAAPAAMAAAAKAAMAAAAPAAIAAAAKAAMAAAAPAAEAAAAKAAMAAAAPAAAAAAAKAAMAAAANAAYAAAAHAAEAAAANAAMAAAAHAAEAAAANAAAAAAAHAAEAAAAQAAYAAAAHAAEAAAAQAAQAAAAHAAEAAAAQAAUAAAAHAAEAAAAQAAMAAAAHAAEAAAAQAAIAAAAHAAEAAAAQAAEAAAAHAAEAAAAQAAAAAAAHAAEAAAA=")
+tile_set = ExtResource("1_gowg5")
+
+[node name="ObserverTitle2" type="Label" parent="Node2D/Observer23"]
+texture_filter = 1
+offset_left = 196.25
+offset_top = 69.5
+offset_right = 481.25
+offset_bottom = 157.5
+scale = Vector2(0.25, 0.25)
+text = "Observer"
+label_settings = SubResource("LabelSettings_m1fbm")
+
+[node name="ObserverTitle3" type="Label" parent="Node2D/Observer23"]
+texture_filter = 1
+offset_left = 212.25
+offset_top = 117.75
+offset_right = 497.25
+offset_bottom = 205.75
+scale = Vector2(0.25, 0.25)
+text = "Observer"
+label_settings = SubResource("LabelSettings_m1fbm")
+
+[node name="func2" type="Label" parent="Node2D/Observer23"]
+texture_filter = 1
+offset_left = 196.5
+offset_top = 77.5
+offset_right = 481.5
+offset_bottom = 165.5
+scale = Vector2(0.25, 0.25)
+text = "func 
+turn_on_light()"
+label_settings = SubResource("LabelSettings_6mfca")
+
+[node name="func3" type="Label" parent="Node2D/Observer23"]
+texture_filter = 1
+offset_left = 212.25
+offset_top = 126.25
+offset_right = 497.25
+offset_bottom = 214.25
+scale = Vector2(0.25, 0.25)
+text = "func 
+spew_goop()"
+label_settings = SubResource("LabelSettings_6mfca")
+
+[node name="Red" type="Sprite2D" parent="Node2D/Observer23"]
+texture_filter = 1
+position = Vector2(232, 54.75)
+texture = ExtResource("6_66atc")
+
+[node name="Blue" type="Sprite2D" parent="Node2D/Observer23"]
+visible = false
+position = Vector2(232, 54.75)
+texture = ExtResource("7_chpsx")
+
+[node name="non-goop" type="Sprite2D" parent="Node2D/Observer23"]
+position = Vector2(259.5, 148.00003)
+rotation = -1.5654387
+scale = Vector2(0.50023586, 1)
+texture = ExtResource("8_gcow0")
+
+[node name="goop" type="Sprite2D" parent="Node2D/Observer23"]
+position = Vector2(259.75, 153)
+texture = ExtResource("9_xeolw")
+
+[node name="Observer23Connect2" type="TileMapLayer" parent="Node2D"]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAHAAMAAAAMAAYAAAAHAAQAAAAMAAYAAAAIAAMAAAANAAYAAAAKAAMAAAANAAQAAAAJAAQAAAANAAQAAAAKAAQAAAAMAAUAAAAJAAcAAAAMAAUAAAAIAAQAAAANAAYAAAAJAAUAAAALAAQAAAAJAAYAAAALAAQAAAAKAAcAAAANAAYAAAAJAAMAAAANAAYAAAALAAQAAAAPAAYAAAAMAAcAAAAPAAYAAAALAAcAAAANAAYAAAA=")
+tile_set = ExtResource("1_gowg5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(158, 79)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_5s1yr")
+frame_progress = 0.5175483
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1096, 80)
+scale = Vector2(-4, 4)
+sprite_frames = SubResource("SpriteFrames_66atc")
+frame_progress = 0.92933124
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(535, 257)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_66atc")
+frame_progress = 0.23561424

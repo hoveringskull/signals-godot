@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://c0h0cnkpil0p8"]
+
+[ext_resource type="Texture2D" uid="uid://cb6pgn8ehc7aa" path="res://import/kenney_desert-shooter-pack_1.0/PNG/Enemies/Tiles/tile_0012.png" id="1_x68ty"]
+[ext_resource type="Texture2D" uid="uid://dy24g855wkion" path="res://import/kenney_desert-shooter-pack_1.0/PNG/Enemies/Tiles/tile_0013.png" id="2_6yj01"]
+[ext_resource type="Texture2D" uid="uid://dpqcqbrfsxqap" path="res://import/kenney_desert-shooter-pack_1.0/PNG/Enemies/Tiles/tile_0014.png" id="3_b405o"]
+[ext_resource type="Texture2D" uid="uid://b5gepobn6rcsj" path="res://import/kenney_desert-shooter-pack_1.0/PNG/Enemies/Tiles/tile_0015.png" id="4_puye0"]
+[ext_resource type="Script" uid="uid://dw4ao5oogmq67" path="res://examples/rts_with_event_bus/rts_unit_eb.gd" id="5_jb4ii"]
+[ext_resource type="Texture2D" uid="uid://s27kbm6a322u" path="res://import/kenney_desert-shooter-pack_1.0/PNG/Weapons/Tiles/tile_0004.png" id="6_nfh3s"]
+[ext_resource type="Texture2D" uid="uid://ckxagio6mxufi" path="res://import/kenney_tiny-battle/Tiles/tile_0061.png" id="7_fob27"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g1k8g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x68ty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6yj01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b405o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_puye0")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ccdb2"]
+radius = 13.038404
+
+[node name="unit_bunny" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_g1k8g")
+animation = &"die"
+flip_h = true
+script = ExtResource("5_jb4ii")
+unit_name = "Bunny Marine"
+weapon_name = "Nuclear Shotgun (420 damage)"
+max_hp = 50
+current_hp = 34
+damage = 420
+
+[node name="gun" type="Sprite2D" parent="."]
+position = Vector2(-16, 4)
+texture = ExtResource("6_nfh3s")
+flip_h = true
+
+[node name="selection" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+texture = ExtResource("7_fob27")
+
+[node name="clickable" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="shape" type="CollisionShape2D" parent="clickable"]
+shape = SubResource("CircleShape2D_ccdb2")

@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://tjw38cl4sep1"]
+
+[ext_resource type="Texture2D" uid="uid://b5s3g605ms1sw" path="res://import/kenney_desert-shooter-pack_1.0/PNG/Players/Tiles/tile_0000.png" id="1_mmamd"]
+[ext_resource type="Texture2D" uid="uid://cmbvatt4d6xx3" path="res://import/kenney_desert-shooter-pack_1.0/PNG/Players/Tiles/tile_0001.png" id="2_7fvbj"]
+[ext_resource type="Texture2D" uid="uid://bp7k613wcgbw1" path="res://import/kenney_desert-shooter-pack_1.0/PNG/Players/Tiles/tile_0002.png" id="3_lsic6"]
+[ext_resource type="Texture2D" uid="uid://vgx6vqvf4tns" path="res://import/kenney_desert-shooter-pack_1.0/PNG/Players/Tiles/tile_0003.png" id="4_mhcj5"]
+[ext_resource type="Script" uid="uid://dw4ao5oogmq67" path="res://examples/rts_with_event_bus/rts_unit_eb.gd" id="5_6bjrh"]
+[ext_resource type="Texture2D" uid="uid://ckxagio6mxufi" path="res://import/kenney_tiny-battle/Tiles/tile_0061.png" id="6_ackt2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w3fri"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mmamd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7fvbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lsic6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mhcj5")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_78vtd"]
+radius = 13.038404
+
+[node name="unit_weasel_eb" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_w3fri")
+script = ExtResource("5_6bjrh")
+unit_name = "Weasel"
+weapon_name = "Claws (10 damage)"
+max_hp = 20
+current_hp = 20
+damage = 10
+
+[node name="selection" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+texture = ExtResource("6_ackt2")
+
+[node name="clickable" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="shape" type="CollisionShape2D" parent="clickable"]
+shape = SubResource("CircleShape2D_78vtd")
