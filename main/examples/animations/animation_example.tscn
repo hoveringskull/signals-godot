@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://b28e6jq5xldn1"]
+
+[ext_resource type="Script" uid="uid://cmmhjdkoo8105" path="res://examples/animations/animation_scene.gd" id="1_uuaou"]
+[ext_resource type="PackedScene" uid="uid://bv3cccanuphw0" path="res://examples/animations/skeleton_warrior.tscn" id="2_8w8qq"]
+[ext_resource type="PackedScene" uid="uid://d36eef2ik6tgo" path="res://examples/animations/skeleton_mage.tscn" id="3_i8b1t"]
+[ext_resource type="Theme" uid="uid://hhy682ty5qc8" path="res://theme/theme.tres" id="4_fmlbr"]
+
+[sub_resource type="Environment" id="Environment_7m3gx"]
+background_mode = 2
+background_energy_multiplier = 0.7
+
+[node name="AnimationScene" type="Node3D" unique_id=27301210]
+script = ExtResource("1_uuaou")
+
+[node name="warrior" parent="." unique_id=1511920072 instance=ExtResource("2_8w8qq")]
+unique_name_in_owner = true
+transform = Transform3D(0.09873007, 0, 0.9951144, 0, 1, 0, -0.9951144, 0, 0.09873007, 0.84732914, 0, 0.13762808)
+
+[node name="mage" parent="." unique_id=1065380818 instance=ExtResource("3_i8b1t")]
+unique_name_in_owner = true
+transform = Transform3D(-0.15248644, 0, -0.98830557, 0, 1, 0, 0.98830557, 0, -0.15248644, 2.8315227, 2.3841858e-07, -0.072966814)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=556627680]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8682308, 1.5245272, 3.268996)
+environment = SubResource("Environment_7m3gx")
+current = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1978495843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7071911, -0.11602795, 0)
+light_color = Color(0.27058825, 1, 1, 1)
+light_energy = 5.173
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=2038385464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6404544, -1.6210872, 0)
+light_color = Color(0.7897785, 0.94008154, 0.700084, 1)
+light_energy = 5.173
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=220125386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.478028, 2.5339403, 0)
+light_color = Color(0.7897785, 0.94008154, 0.700084, 1)
+light_energy = 5.173
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=726790701]
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer" unique_id=161695891]
+offset_right = 358.0
+offset_bottom = 40.0
+theme = ExtResource("4_fmlbr")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel" unique_id=2085148780]
+layout_mode = 2
+theme = ExtResource("4_fmlbr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer" unique_id=1031138950]
+layout_mode = 2
+
+[node name="button_warrior_attack" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer" unique_id=429952742]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Warrior Attack"
+
+[node name="button_mage_attack" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer" unique_id=1230053673]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Mage Attack"
+
+[node name="button_warrior_attack_tween" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer" unique_id=7053309]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Warrior Attack (TWEEN)"
+
+[node name="button_mage_attack_tween" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer" unique_id=1739754941]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Mage Attack (TWEEN)"
