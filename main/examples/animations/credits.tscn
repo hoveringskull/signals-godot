@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bi7biuwwv82qf"]
+
+[ext_resource type="PackedScene" uid="uid://bv3cccanuphw0" path="res://examples/animations/skeleton_warrior.tscn" id="1_hfdgp"]
+[ext_resource type="Script" uid="uid://cyigyfnilk3te" path="res://examples/animations/3d_unit_cred.gd" id="2_qodbd"]
+
+[sub_resource type="Environment" id="Environment_hnnho"]
+background_mode = 1
+
+[node name="Credits" type="Node3D" unique_id=1545965695]
+
+[node name="Skeleton_Warrior" parent="." unique_id=1511920072 instance=ExtResource("1_hfdgp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027738929, -1.1920929e-07, -0.032865763)
+script = ExtResource("2_qodbd")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1208165408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029714346, 1.5980086, 3.3230839)
+environment = SubResource("Environment_hnnho")
+current = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=396357338]
+transform = Transform3D(1, 0, 0, 0, 0.89518714, 0.4456905, 0, -0.4456905, 0.89518714, 0, 2.442396, 3.3259778)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1795277840]
+transform = Transform3D(1, 0, 0, 0, 0.72514397, -0.6885973, 0, 0.6885973, 0.72514397, 0, -0.69281316, 3.3259778)
+light_color = Color(0, 1, 0.4117647, 1)

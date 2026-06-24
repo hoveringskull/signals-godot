@@ -45,3 +45,12 @@ func handle_attack_await_tween(attacker: Unit3D, victim: Unit3D) -> void:
 	tween.tween_callback(func() -> void: victim.trigger_animation(hurt_anim_name))
 	
 	
+# Don't do this!
+func handle_attack_fragile_hardcoded_duration(attacker: Unit3D, victim: Unit3D) -> void:
+	attacker.trigger_animation(attack_anim_name)
+	var timer: Timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = 0.35 # Some magic number that is specific to this animation ONLY
+	timer.timeout.connect(handle_hurt.bind(victim))
+	timer.one_shot = true
+	timer.start()
