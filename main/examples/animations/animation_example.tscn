@@ -57,19 +57,24 @@ layout_mode = 2
 [node name="button_warrior_attack" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer" unique_id=429952742]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Warrior Attack"
+text = "Warrior atk one shot"
 
 [node name="button_mage_attack" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer" unique_id=1230053673]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Mage Attack"
+text = "Mage atk AWAIT"
 
 [node name="button_warrior_attack_tween" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer" unique_id=7053309]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Warrior Attack (TWEEN)"
+text = "Warrior Atk (TWEEN)"
 
 [node name="button_mage_attack_tween" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer" unique_id=1739754941]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Mage Attack (TWEEN)"
+text = "Mage  (TWEEN)"
+
+[node name="button_collision_based_attack" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer" unique_id=1084184917]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Collision Attack"

@@ -4,6 +4,7 @@ extends Node3D
 @onready var button_mage_attack: Button = %button_mage_attack
 @onready var button_warrior_attack_tween: Button = %button_warrior_attack_tween
 @onready var button_mage_attack_tween: Button = %button_mage_attack_tween
+@onready var button_collision_based_attack: Button = %button_collision_based_attack
 @onready var warrior: Unit3D = %warrior
 @onready var mage: Unit3D = %mage
 
@@ -19,6 +20,7 @@ func _ready() -> void:
 	button_mage_attack.pressed.connect(handle_attack_coroutine.bind(mage, warrior))
 	button_warrior_attack_tween.pressed.connect(handle_attack_await_tween.bind(warrior, mage))
 	button_mage_attack_tween.pressed.connect(handle_attack_await_tween.bind(mage, warrior))
+	button_collision_based_attack.pressed.connect(handle_collision_attack.bind(warrior))
 
 func handle_attack(attacker: Unit3D, victim: Unit3D) -> void:
 	attacker.trigger_animation(attack_anim_name)
@@ -43,6 +45,10 @@ func handle_attack_await_tween(attacker: Unit3D, victim: Unit3D) -> void:
 	# New in Godot 4.7! We can await tweens
 	tween.tween_await(attacker.strike)
 	tween.tween_callback(func() -> void: victim.trigger_animation(hurt_anim_name))
+	
+func handle_collision_attack(attacker: Unit3D) -> void:
+	attacker.do_collision_attack(attack_anim_name)
+	
 	
 	
 # Don't do this!
